@@ -1,0 +1,17 @@
+<div class="max-w-md mx-auto mt-10 p-6 bg-white rounded-xl shadow-lg border border-gray-200">
+    <h1 class="text-3xl font-bold text-blue-600 text-center mb-4">
+        Đây là trang chủ
+    </h1>
+
+    <p class="text-lg text-gray-700 mb-2">
+        <span class="font-semibold">Tên:</span> {{ name }}
+    </p>
+
+    <p class="text-lg text-gray-700">
+        <span class="font-semibold">Tuổi:</span> {{ age }}
+    </p>
+    <button (click)="sayHello()"
+        class="px-6 py-2 bg-blue-600 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 active:scale-95 transition duration-200">
+        Click Me
+    </button>
+</div>
