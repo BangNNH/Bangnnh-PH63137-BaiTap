@@ -1,0 +1,31 @@
+<h2>Đăng ký tài khoản</h2>
+
+<form [formGroup]="registerForm" (ngSubmit)="submitForm()">
+    <div>
+        <label>username</label>
+        <input type="text" formControlName="username" />
+        @if(username?.invalid && username?.touched){
+        <p style="color:red">username không được để trống</p>
+        }
+    </div>
+
+    <div>
+        <label>email</label>
+        <input type="email" formControlName="email" />
+        @if(email?.invalid && email?.touched){
+        <p style="color:red">Email không được để trống</p>
+        }
+    </div>
+    <div>
+        <label>password</label>
+        <input type="password" formControlName="password" />
+        @if(password?.invalid && password?.touched){
+        <p style="color:red">password không được để trống và > 6 ký tự</p>
+        }
+    </div>
+
+
+    <button type="submit" [disabled]="registerForm.invalid">
+        Đăng ký
+    </button>
+</form>

@@ -1,0 +1,41 @@
+<h2>Thêm sản phẩm</h2>
+
+<form [formGroup]="addForm" (ngSubmit)="submitForm()">
+    <div>
+        <label>Tên sản phẩm</label>
+        <input type="text" formControlName="name" />
+        @if (name?.invalid && name?.touched) {
+
+        <p style="color:red">Tên sản phẩm không được để trống</p>
+
+        }
+    </div>
+
+    <div>
+        <label>Giá</label>
+        <input type="number" formControlName="price" />
+        @if (price?.invalid && price?.touched) {
+
+        <p style="color:red">Giá sản phẩm phải > 0</p>
+
+        }
+    </div>
+
+    <div>
+        <label>Category</label>
+
+        <select formControlName="category">
+            <option value="">-- Chọn danh mục --</option>
+            <option value="Laptop">Laptop</option>
+            <option value="Điện thoại">Điện thoại</option>
+            <option value="Tai nghe">Tai nghe</option>
+            <option value="Đồng hồ">Đồng hồ</option>
+        </select>
+    </div>
+
+
+
+    <button type="submit" [disabled]="addForm.invalid">
+        Thêm sản phẩm
+    </button>
+</form>
