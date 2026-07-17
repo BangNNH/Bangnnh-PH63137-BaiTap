@@ -39,6 +39,7 @@
             <th>Tên truyện</th>
             <th>Tác giả</th>
             <th>Lượt xem</th>
+            <th>Action</th>
         </tr>
     </thead>
 
@@ -49,7 +50,7 @@
             <td>{{ i + 1 }}</td>
 
             <td>
-                <img [src]="story.image" [alt]="story.title" width="80" />
+                <!-- <img [src]="story.image" [alt]="story.title" width="80" /> -->
             </td>
 
             <td>{{ story.title }}</td>
@@ -60,8 +61,13 @@
                 {{ story.views }}
 
                 @if (story.views > 90000) {
-                 - HOT🔥
+                - HOT🔥
                 }
+            </td>
+            <td>
+                <button (click)="deleteStory(story.id)">
+                    Xóa
+                </button>
             </td>
         </tr>
 

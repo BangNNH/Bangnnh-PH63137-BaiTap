@@ -1,12 +1,69 @@
-<div class="max-w-md mx-auto mt-10 p-6 bg-white rounded-xl shadow-lg border border-gray-200">
-    <h1 class="text-3xl font-bold text-blue-600 text-center mb-6">
-        Đây là trang sản phẩm
-    </h1>
+<h2>Danh sách sản phẩm</h2>
 
-    <ul class="space-y-3">
-        <li *ngFor="let product of products"
-            class="px-4 py-3 bg-gray-100 rounded-lg shadow-sm hover:bg-blue-50 hover:text-blue-600 hover:shadow-md transition-all duration-200 cursor-pointer">
-            {{ product }}
-        </li>
-    </ul>
-</div>
+@if (isLoading) {
+
+<p>Đang tải dữ liệu...</p>
+
+} @else if (errorMessage) {
+
+<p style="color: red;">{{ errorMessage }}</p>
+
+} @else {
+
+@if (products.length > 0) {
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>STT</th>
+            <th>Tên sản phẩm</th>
+            <th>Giá</th>
+            <th>Số lượng</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+
+    <tbody>
+
+        @for (product of products; track product.id; let i = $index) {
+
+        <tr>
+            <td>{{ i + 1 }}</td>
+
+            <td>{{ product.name }}</td>
+
+            <td>{{ product.price }} VNĐ</td>
+
+            <td>
+                {{ product.quantity }}
+
+                @if (product.quantity > 10) {
+                🔥
+                }
+            </td>
+
+            <td>
+                <button (click)="deleteProduct(product.id)" [disabled]="deletingId === product.id">
+
+                    @if (deletingId === product.id) {
+                    Đang xóa...
+                    } @else {
+                    Xóa
+                    }
+
+                </button>
+            </td>
+        </tr>
+
+        }
+
+    </tbody>
+</table>
+
+} @else {
+
+<p>Không có sản phẩm nào</p>
+
+}
+
+}
