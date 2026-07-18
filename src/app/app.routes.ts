@@ -33,11 +33,11 @@ export const routes: Routes = [
         component: AddStory
     },
     {
-        path: "lab4-add-product",
+        path: "add-product",
         component: Lab4AddProduct
     },
     {
-        path: "lab4-register",
+        path: "register",
         component: Lab4Register
     },
 ];

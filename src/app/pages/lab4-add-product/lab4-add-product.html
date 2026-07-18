@@ -20,6 +20,15 @@
 
         }
     </div>
+    <div>
+        <label>Số lượng</label>
+        <input type="number" formControlName="quantity" />
+        @if (quantity?.invalid && quantity?.touched) {
+
+        <p style="color:red">Số lượng sản phẩm phải >= 0</p>
+
+        }
+    </div>
 
     <div>
         <label>Category</label>
@@ -33,9 +42,13 @@
         </select>
     </div>
 
+    <button type="submit" [disabled]="addForm.invalid || isLoading">
 
-
-    <button type="submit" [disabled]="addForm.invalid">
+        @if (isLoading) {
+        Đang gửi...
+        } @else {
         Thêm sản phẩm
+        }
+
     </button>
 </form>

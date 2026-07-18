@@ -7,9 +7,7 @@ interface Story {
   title: string;
   author: string;
   views: number;
-  releaseYear: number;
-  imageUrl: string;
-  genres: string[];
+  image: string
 }
 
 @Component({
@@ -56,4 +54,6 @@ export class Stories {
       },
     });
   }
+
+
 }
