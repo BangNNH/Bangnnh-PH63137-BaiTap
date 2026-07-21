@@ -1,0 +1,26 @@
+<h2>Edit truyện</h2>
+<form [formGroup]="editForm" (ngSubmit)="submitForm()">
+    <div>
+        <label>Tiêu đề</label>
+        <input type="text" formControlName="title">
+        @if(title?.invalid && title?.touched){
+        <p style="color: red;">Tiêu đề phải tối thiểu 3 ký tự</p>
+        }
+    </div>
+    <div>
+        <label>Tác giả</label>
+        <input type="text" formControlName="author">
+    </div>
+    <div>
+        <label>Lượt xem</label>
+        <input type="text" formControlName="views">
+        @if(views?.invalid && views?.touched){
+        <p style="color: red;">Lượt xem phải >= 0</p>
+        }
+    </div>
+    <div>
+        <label>Ảnh</label>
+        <input type="text" formControlName="image">
+    </div>
+    <button type="submit">Submit</button>
+</form>

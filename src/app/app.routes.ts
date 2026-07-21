@@ -7,6 +7,7 @@ import { Stories } from "./pages/stories/stories";
 import { AddStory } from './pages/add-story/add-story';
 import { Lab4AddProduct } from './pages/lab4-add-product/lab4-add-product';
 import { Lab4Register } from './pages/lab4-register/lab4-register';
+import { Lesson7EditForm } from './pages/lesson7-edit-form/lesson7-edit-form';
 
 export const routes: Routes = [
     {
@@ -31,6 +32,10 @@ export const routes: Routes = [
     {
         path: "add-story",
         component: AddStory
+    },
+    {
+        path: "edit-story/:id",
+        component: Lesson7EditForm
     },
     {
         path: "add-product",
